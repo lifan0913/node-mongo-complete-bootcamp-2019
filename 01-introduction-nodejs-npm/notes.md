@@ -22,3 +22,7 @@ Possible uses to Node.js:
 Don't use Node to develop applications with heavy server-side processing (CPU-intensive).
 
 ---
+
+## Running JavaScript outside the browser
+
+To start running Node code on the terminal just type `node`. Then we can start typing some JavaScript code directly on the terminal.
