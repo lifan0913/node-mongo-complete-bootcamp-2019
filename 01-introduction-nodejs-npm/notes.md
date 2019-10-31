@@ -27,8 +27,24 @@ Don't use Node to develop applications with heavy server-side processing (CPU-in
 
 To start running Node code on the terminal just type `node`. Then we can start typing some JavaScript code directly on the terminal.
 
+---
+
 ## Using Modules 1: Core Modules
 
 With Node.js we can do all type of amazing things that we cannot do with JavaScript on the browser, like, for example reading files from the file system.
 
 In order to do that we need to use a node module. Node.js is built around this concept of modules, where all kinds of functionality are stored in a module. For reading files in inside the `fs` Module - `require('fs')`
+
+---
+
+## Read and Writing Files
+
+In order to read or write files we can to use the fs (file system) module. We simply require it and assign it to a variable to be used later.
+
+### Read files
+
+To read a file we use our variable were we assigned the fs module and run the `readFileSync` method passing in the path of the file and the encoding
+
+### Write files
+
+To write a file we use the `writeFileSync` passing the path of where we want our file to be written and the content that we want in the file.
