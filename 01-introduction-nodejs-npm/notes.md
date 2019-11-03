@@ -48,3 +48,17 @@ To read a file we use our variable were we assigned the fs module and run the `r
 ### Write files
 
 To write a file we use the `writeFileSync` passing the path of where we want our file to be written and the content that we want in the file.
+
+---
+
+## Blocking and Non-Blocking: Asynchronous Nature of Node.js
+
+The piece of code that we wrote in the last lesson to read the file and to save it's content in a variable, was writen in a Synchronous way. This means that every line of code "waits" for the result of the previous one. This type of code is known as blocking.
+
+Node.js is single-threaded and this means that all the users using the app are using the same thread. If a user block the code with a synchronous method it blocks the thread for all the users.
+
+We should use asynchrounous code, that instead of blocking the execution does the heavy work in the background. While it's ready the data in the background all the other users can perform theirs tasks. Use the Non-blocking I/O model.
+
+This is why we use so many callback functions in Node.js.
+
+It's important to know that using callbacks does not make our code automatically asynchronous.
