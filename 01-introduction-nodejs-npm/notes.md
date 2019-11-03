@@ -70,3 +70,12 @@ It's important to know that using callbacks does not make our code automatically
 To read a file in a asynchronous way we should use the `readFile` method instead of the `readFileSync` and pass it a callback to execute once it finishes reading the contents.
 
 The same applies to writing a file. There's an example in the repo with some code to read and write files in a asynchronous way.
+
+---
+
+## Creating a Simple Web Server
+
+The first step is to include the `http` module.
+The second step is to use the `createServer()` method inside the http module, and pass it a callback function with the request and response.
+
+Once we got our server ready we need to listen for connections using the `listen()` method. We need to pass the port and an optional location. E.g: `server.listen(8000, '127.0.0.1')`
