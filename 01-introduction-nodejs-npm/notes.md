@@ -62,3 +62,11 @@ We should use asynchrounous code, that instead of blocking the execution does th
 This is why we use so many callback functions in Node.js.
 
 It's important to know that using callbacks does not make our code automatically asynchronous.
+
+---
+
+## Reading and Writing Files Asynchronously
+
+To read a file in a asynchronous way we should use the `readFile` method instead of the `readFileSync` and pass it a callback to execute once it finishes reading the contents.
+
+The same applies to writing a file. There's an example in the repo with some code to read and write files in a asynchronous way.
