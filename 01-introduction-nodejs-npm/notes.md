@@ -79,3 +79,17 @@ The first step is to include the `http` module.
 The second step is to use the `createServer()` method inside the http module, and pass it a callback function with the request and response.
 
 Once we got our server ready we need to listen for connections using the `listen()` method. We need to pass the port and an optional location. E.g: `server.listen(8000, '127.0.0.1')`
+
+---
+
+## Routing
+
+In this example we are going to implement routing only using Node.js, however, in a real application and in the next app we are going to use `express`.
+
+We are going to use another built in method called `url` to implement a simple example of routing. We are going to compare the `pathName` inside the server and display a message according to the page that the user requires.
+
+To return the `404` Status Code, we use the `res.writeHead()`. We can also use this method to send headers. To do this we need to specify and object with the headers that we want to send back.
+
+In the example we are informing the browser that we are going to send back some HTML, so in the `end()` we can use HTML without any issue.
+
+IMPORTANT: We need to specify the headers BEFORE sending out the response.
