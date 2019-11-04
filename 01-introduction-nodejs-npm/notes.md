@@ -93,3 +93,19 @@ To return the `404` Status Code, we use the `res.writeHead()`. We can also use t
 In the example we are informing the browser that we are going to send back some HTML, so in the `end()` we can use HTML without any issue.
 
 IMPORTANT: We need to specify the headers BEFORE sending out the response.
+
+---
+
+## Building a (very) Simple API
+
+API - Application Programming Interface
+
+An API in a nutshell is a service from which we can request some data. In this example we are going to request some data about the products that we are offering in the node-farm.
+
+The information is in the `dev-data/data.json`. We are going to read the data from this file and than parse JSON into JavaScript and than send back that result to the client.
+
+To convert JSON into JavaScript we use the `JSON.parse()`.
+
+To make the server more efficient we are going to read the file when the server loads and then just send the response when somebody makes a request for the API instead of reading it every time. And we are using the Sync version because it's nor problematic here, the code will run "before" the server starts.
+
+SIDE NOTE: On the `readFile()` method we are using a different way to say where our data is located. We are doing this because usually the './' is where the script is being executed and '\_\_dirname' is where the current file is located.
