@@ -109,3 +109,19 @@ To convert JSON into JavaScript we use the `JSON.parse()`.
 To make the server more efficient we are going to read the file when the server loads and then just send the response when somebody makes a request for the API instead of reading it every time. And we are using the Sync version because it's nor problematic here, the code will run "before" the server starts.
 
 SIDE NOTE: On the `readFile()` method we are using a different way to say where our data is located. We are doing this because usually the './' is where the script is being executed and '\_\_dirname' is where the current file is located.
+
+---
+
+## HTML Templating: Builing the Templates
+
+Our goal is to build an application where we have an overview with all the products and every product has a view with the information that we are reading from the file.
+
+We are going to built the templates based on the ones that already exist in the `templates` folder. Replacing the static data with `{%PROCUCT_FIELD%}`.
+
+---
+
+## HTML Templating: Filling the Templates
+
+We already have the templates ready so now we are going to replace the placeholders with content.
+
+We are going to create an aux function to replace our placeholders with the data coming from the file. Then we pass our final output and print the page with all the info listed.
