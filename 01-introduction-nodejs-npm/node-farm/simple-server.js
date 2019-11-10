@@ -38,9 +38,9 @@ const replateTemplate = (temp, product) => {
 const dataObject = JSON.parse(data);
 
 const server = http.createServer((req, res) => {
-	const pathName = req.url;
+	const { query, pathname } = url.parse(req.url, true);
 
-	if (pathName === '/overview' || pathName === '/') {
+	if (pathname === '/overview' || pathname === '/') {
 		//Overview Page
 		res.writeHead(200, { 'Content-type': 'text/html' });
 		const cardsHtml = dataObject
@@ -49,10 +49,13 @@ const server = http.createServer((req, res) => {
 
 		const output = templateOverview.replace('{%PRODUCT_CARDS%}', cardsHtml);
 		res.end(output);
-	} else if (pathName === '/product') {
+	} else if (pathname === '/product') {
 		// Product Page
-		res.end('This is the PRODUCT');
-	} else if (pathName === '/api') {
+		res.writeHead(200, { 'Content-type': 'text/html' });
+		const product = dataObject[query.id];
+		const output = replateTemplate(templateProduct, product);
+		res.end(output);
+	} else if (pathname === '/api') {
 		// API
 		res.writeHead(200, { 'Content-type': 'application/json' });
 		res.end(data);

@@ -125,3 +125,9 @@ We are going to built the templates based on the ones that already exist in the 
 We already have the templates ready so now we are going to replace the placeholders with content.
 
 We are going to create an aux function to replace our placeholders with the data coming from the file. Then we pass our final output and print the page with all the info listed.
+
+---
+
+## Parsing Variables from URLs
+
+We are going to pass our URL in order to build the product page. We are going to parse our URL so that we can have our query and it's value and use them to fetch the data of the product that we want to load and display to the user.
