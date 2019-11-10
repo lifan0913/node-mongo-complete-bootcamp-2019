@@ -131,3 +131,13 @@ We are going to create an aux function to replace our placeholders with the data
 ## Parsing Variables from URLs
 
 We are going to pass our URL in order to build the product page. We are going to parse our URL so that we can have our query and it's value and use them to fetch the data of the product that we want to load and display to the user.
+
+---
+
+## Using Modules 2: Our Modules
+
+We can create our own modules and export something from them (eg. a function), import the function in another module and the use it there.
+
+Lets create a new module for the `replaceTemplate()` method and then import it in our simple-server. In order to do this, we are creating a new folder and in there a new file with our module code. Our module will be an anonymous function and will be exported using `module.exports`.
+
+Then we need to import it using require('path-to-our-module') and assign to a variable in order to be used, in our case we are going to use `replaceTemplate` because if we use the same name that we already have we don't need to change anything else in the our server code.
