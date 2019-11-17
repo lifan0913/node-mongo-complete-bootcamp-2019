@@ -149,3 +149,23 @@ Then we need to import it using require('path-to-our-module') and assign to a va
 NPM - Node Package Manager - is a command line interface that automatically comes includes in Node and which we use to install and manage open source packages. These packages usually come from the npm repository.
 
 The first thing that we usually do whenever we start a new project is to start with `npm init`. This command creates the package.json file where we can find the all kinds of data about the project.
+
+---
+
+## Types of Packages and Installs
+
+There are two types of packages that we can use with npm and there are also two types of installs.
+
+### Types of Packages
+
+The types of packages are simple dependencies or development dependecies.
+
+Simple dependencies are use by your application in order for something to work in your code.
+
+Development dependencies are dependencies that are being used while developing the application which can be for example to build the bundle, this type of dependencies are only used while developing the project.
+
+### Types of Installs
+
+There are also two types of installs, the local install and the global install.
+
+As the name implies the local installs are going to be used locally (by the app) and the global installs can be used in any folder or any project in the machine that they are installed.
