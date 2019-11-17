@@ -141,3 +141,11 @@ We can create our own modules and export something from them (eg. a function), i
 Lets create a new module for the `replaceTemplate()` method and then import it in our simple-server. In order to do this, we are creating a new folder and in there a new file with our module code. Our module will be an anonymous function and will be exported using `module.exports`.
 
 Then we need to import it using require('path-to-our-module') and assign to a variable in order to be used, in our case we are going to use `replaceTemplate` because if we use the same name that we already have we don't need to change anything else in the our server code.
+
+---
+
+## Introduction to NPM and the package.json File
+
+NPM - Node Package Manager - is a command line interface that automatically comes includes in Node and which we use to install and manage open source packages. These packages usually come from the npm repository.
+
+The first thing that we usually do whenever we start a new project is to start with `npm init`. This command creates the package.json file where we can find the all kinds of data about the project.
