@@ -169,3 +169,15 @@ Development dependencies are dependencies that are being used while developing t
 There are also two types of installs, the local install and the global install.
 
 As the name implies the local installs are going to be used locally (by the app) and the global installs can be used in any folder or any project in the machine that they are installed.
+
+---
+
+## Using Modules 3: 3rd Party Modules
+
+So far we learned how to require node.js core modules, how to require our own modules and now we are going to take a look on how to require 3rd party modules.
+
+Like usual we do the require at the top and normally we require the core modules first, then the 3rd party modules and finally our own modules coming from the local file system.
+
+In order to use 3rd party modules we need to require the and assign them to a variable, in our example we are requiring **slugify** and we are assing it to a variable with the same name `const slugify = require("slugify");`.
+
+Then we are iterating the `dataObject` and creating an array with all our new slugs for the node-farm products.

@@ -7,5 +7,11 @@
     "start": "nodemon simple-server.js"
   },
   "author": "Diogo Silva",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "slugify": "^1.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
 }
