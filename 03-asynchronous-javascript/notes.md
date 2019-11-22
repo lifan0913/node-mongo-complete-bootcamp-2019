@@ -15,3 +15,11 @@ There are 3 steps here and we are going to use callback functions to illustrate 
 See code to see example of how easy is to get inside a callback hell.
 
 ---
+
+## From Callback Hell to Promises
+
+Lets start to learn how to solve callback hell by using promises. We are going to start by using a Promise for the HTTP Request. This is going to work because the superagent package has support for Promises out-of-the-box.
+
+For Node functions we need to build the Promise ourselfs.
+
+Here we are going to learn how to consume Promises and later in this section we are going to learn how to build them.
