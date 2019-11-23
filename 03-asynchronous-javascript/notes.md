@@ -20,6 +20,18 @@ See code to see example of how easy is to get inside a callback hell.
 
 Lets start to learn how to solve callback hell by using promises. We are going to start by using a Promise for the HTTP Request. This is going to work because the superagent package has support for Promises out-of-the-box.
 
-For Node functions we need to build the Promise ourselfs.
+For Node functions (like readFile) we need to build the Promise ourselfs.
 
 Here we are going to learn how to consume Promises and later in this section we are going to learn how to build them.
+
+---
+
+## Building Promises
+
+In this section we are going to promisify the readFile and writeFile functions. This means that we will make them return Promises.
+
+We are going to write two functions that are going to return Promises, one for the readFile and another for the writeFile. In this functions besides making them return a new Promise we are only going to call some node functions and run the `reject` if something goes wrong or the `resolve` if the promise is fulfilled.
+
+Then the trick is to return the previous Promise everytime on the `.then()`, so we return the result of the call for each one of our new functions and then chain them together in order to avoid the callback hell.
+
+The .catch works for all the Promise, so if any of our chained Promises returns a reject (fails) it will be caught by the .catch and all our Promise (`readFilePro`) will fail.
