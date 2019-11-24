@@ -59,3 +59,17 @@ We can return a value at the end of the execution and then run the `.then()` and
 Another way to do this is to use async/await inside an IFY.
 
 We create an async IFY and then inside a try/catch block put our console.logs and async to a new variable (x) the result of the await of our Promise. Then we just need to log it.
+
+---
+
+## Waiting for Multiple Promises Simultaneously
+
+Now, for the final part of our study of Promises, let's learn how we can run multiple Promises, all at the same time.
+
+Lets assume that we want to run 3 pictures in the `getDogPic()` method.
+
+In order to do this we are going to create 3 new Promises and save them to variables `res1Pro, res2Pro, res3Pro`.
+
+Then we run the `Promise.all()` method and pass it our 3 promises and await for the completions.
+
+Once this is done we iterate our result and create an array with the result from our promises and save it to our new file.
