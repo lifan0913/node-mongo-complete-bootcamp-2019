@@ -35,3 +35,15 @@ We are going to write two functions that are going to return Promises, one for t
 Then the trick is to return the previous Promise everytime on the `.then()`, so we return the result of the call for each one of our new functions and then chain them together in order to avoid the callback hell.
 
 The .catch works for all the Promise, so if any of our chained Promises returns a reject (fails) it will be caught by the .catch and all our Promise (`readFilePro`) will fail.
+
+---
+
+## Consuming Promises with Async/Await
+
+Instead of consuminf Promises with the `.then()` method that still uses callbacks we can user something called Async/Await which is something that was introduced in ES8.
+
+To use async/await we need to declare that our function is async, using the `async` keyword when creating it. Then we use the keyword `await` in every promise and save the result in a variable. The await keyword will stop the code until the promise is resolved.
+
+Once this is done we can do the next step, in our case our next promise.
+
+In order to catch the errors we need to put our entire code inside a try/catch block. And if any error is returned it wil be catched and the code inside the catch block will be executed.
