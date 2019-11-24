@@ -47,3 +47,15 @@ To use async/await we need to declare that our function is async, using the `asy
 Once this is done we can do the next step, in our case our next promise.
 
 In order to catch the errors we need to put our entire code inside a try/catch block. And if any error is returned it wil be catched and the code inside the catch block will be executed.
+
+---
+
+## Returning Values from Async Functions
+
+In order to return values from Async Functions we have a couple of options to do this.
+
+We can return a value at the end of the execution and then run the `.then()` and get the returned value there. This however has a problem, if we have an error in the main Promise because we are always returning it as a resolved (sucessfull) promise, to fix this we need to `throw()` an error inside the catch method and then catch it in our function.
+
+Another way to do this is to use async/await inside an IFY.
+
+We create an async IFY and then inside a try/catch block put our console.logs and async to a new variable (x) the result of the await of our Promise. Then we just need to log it.
