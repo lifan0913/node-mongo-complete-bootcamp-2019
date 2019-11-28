@@ -43,3 +43,11 @@ A resource is an object or representation of something, which has data associate
 ### Stateless RESTful API?
 
 In a stateless RESTful API all state is handled on the client. This means that each request must contain **all** the information necessary to process a certain request. The server should **not** have to remember previous requests.
+
+---
+
+## Starting our API: Handling GET Requests
+
+Lets start building our Natours API. We are going to start by building a GET Request and sending a JSON response back.
+
+In order to do this we are going to use the data that is on the starter files inside the course resources.
