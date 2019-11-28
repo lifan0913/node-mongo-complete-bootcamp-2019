@@ -17,3 +17,29 @@ Also express makes it easier to organize our application into the MVC architectu
 Lets create a simple server and set up some basic routing.
 
 Theres is kind of a convention to have all the Express code in the `app.js` so that's what we are going to do here.
+
+---
+
+## APIs and RESTful API Design
+
+Now that we know what express is we are almost ready to start building our API. But before we do that we need to quickly talk about APIs on a higher level and have an introduction to the REST architecture which is the most used API architecture used today.
+
+API - Application Program Interface is a piece of software that can be used bny another piece of software, in order to allow applications to talk to each other.
+
+REST - Representational State Transfer is basically a way of building Web APIs in a logical way making them easier to consume.
+
+To build RESTful APIs we need to follow a couple of principals:
+
+1 - Separate API into logical Resourses
+2 - Expose Stuctured resource-based URLs
+3 - Use HTTP methods (verbs)
+4 - Send data as JSON (usually)
+5 - Be stateless
+
+### What is a Resource?
+
+A resource is an object or representation of something, which has data associated to it. Any information that can be **named** can be a resource. Like for instance on the Natours API that we are going to build, **tours** **users** and **reviews** are all resources.
+
+### Stateless RESTful API?
+
+In a stateless RESTful API all state is handled on the client. This means that each request must contain **all** the information necessary to process a certain request. The server should **not** have to remember previous requests.
