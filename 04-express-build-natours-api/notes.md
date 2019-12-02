@@ -59,3 +59,13 @@ In order to do this we are going to use the data that is on the starter files in
 Lets now implement a route handler for POST request so that we can add new tours. Notice that the URL is exactly the same, the only thing that changes is the HTTP method that we use.
 
 We need to use a middleware here. A middleware is a function that can modify the incoming request data. It's called middleware because it acts in the middle, between the request and the response.
+
+---
+
+## Responding to URL Parameters
+
+Lets learn an easy way to find, read and respond to parameters that are in the URL.
+
+In order to add a route that is expecting some params we need to declare it, using the `/:param`, we can have as much params as we need and can say that they are optional using the `?`.
+
+We can get the URL params using the `req.params`. In the `req.params` there's an Object with every param that is passed in the URL.
