@@ -51,3 +51,11 @@ In a stateless RESTful API all state is handled on the client. This means that e
 Lets start building our Natours API. We are going to start by building a GET Request and sending a JSON response back.
 
 In order to do this we are going to use the data that is on the starter files inside the course resources.
+
+---
+
+## Handing Post Requests
+
+Lets now implement a route handler for POST request so that we can add new tours. Notice that the URL is exactly the same, the only thing that changes is the HTTP method that we use.
+
+We need to use a middleware here. A middleware is a function that can modify the incoming request data. It's called middleware because it acts in the middle, between the request and the response.
