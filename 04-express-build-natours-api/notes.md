@@ -69,3 +69,13 @@ Lets learn an easy way to find, read and respond to parameters that are in the U
 In order to add a route that is expecting some params we need to declare it, using the `/:param`, we can have as much params as we need and can say that they are optional using the `?`.
 
 We can get the URL params using the `req.params`. In the `req.params` there's an Object with every param that is passed in the URL.
+
+---
+
+## Handling Patch Requests
+
+After GET and POST, lets learn how to handle the PATCH method to actualy update data.
+
+We have 2 HTTP methods to update data (PUT and PATCH).
+
+With PUT we except that our application recieves the entire new updated object and with PATCH we only expect the properties that are actually going to be updated on the object.

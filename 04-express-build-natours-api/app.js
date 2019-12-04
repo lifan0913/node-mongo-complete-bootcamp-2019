@@ -65,6 +65,28 @@ app.post('/api/v1/tours', (req, res) => {
   );
 });
 
+app.patch('/api/v1/tours/:id', (req, res) => {
+  /**
+   * We aren't implementing the method because this is a dummy API and we will not use files to save the data in a real context
+   * This is only to demonstrate how to send back data when using the PATHC Method.
+   */
+  if (req.params.id > tours.length) {
+    return res.status(404).json({
+      status: 'fail',
+      data: {
+        tour: 'Invalid ID'
+      }
+    });
+  }
+
+  res.status(200).json({
+    status: 'sucess',
+    data: {
+      tour: '<Updated tour here...>'
+    }
+  });
+});
+
 const port = 3000;
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
