@@ -87,3 +87,13 @@ With PUT we except that our application recieves the entire new updated object a
 Finally lets now handle the DELETE Request.
 
 Like the last lesson we will not implement the delete method because we are only learning the logic in this methods. In a near future we will develop a full API and then use the delete method in its full glory.
+
+---
+
+## Refactoring our Routes
+
+Lets re-organize some of our routes to make our code much better.
+
+Basically we are going to declare all our functions and then use them in the specific route.
+
+Then to make our code easier to read and to maintain we are going to use the `app.route()` and chain all the methods that can be used in that specific route.
