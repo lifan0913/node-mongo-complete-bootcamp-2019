@@ -55,6 +55,7 @@ app.post('/api/v1/tours', (req, res) => {
     `${__dirname}/dev-data/data/tours-simple.json`,
     JSON.stringify(tours),
     err => {
+      // 201 means created
       res.status(201).json({
         status: 'success',
         data: {
@@ -83,6 +84,29 @@ app.patch('/api/v1/tours/:id', (req, res) => {
     status: 'sucess',
     data: {
       tour: '<Updated tour here...>'
+    }
+  });
+});
+
+app.delete('/api/v1/tours/:id', (req, res) => {
+  /**
+   * We aren't implementing the method because this is a dummy API and we will not use files to save the data in a real context
+   * This is only to demonstrate how to send back data when using the PATHC Method.
+   */
+  if (req.params.id > tours.length) {
+    return res.status(404).json({
+      status: 'fail',
+      data: {
+        tour: 'Invalid ID'
+      }
+    });
+  }
+
+  // 204 means no content
+  res.status(204).json({
+    status: 'sucess',
+    data: {
+      tour: null
     }
   });
 });

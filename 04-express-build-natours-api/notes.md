@@ -79,3 +79,11 @@ After GET and POST, lets learn how to handle the PATCH method to actualy update 
 We have 2 HTTP methods to update data (PUT and PATCH).
 
 With PUT we except that our application recieves the entire new updated object and with PATCH we only expect the properties that are actually going to be updated on the object.
+
+---
+
+## Handling Delete Requests
+
+Finally lets now handle the DELETE Request.
+
+Like the last lesson we will not implement the delete method because we are only learning the logic in this methods. In a near future we will develop a full API and then use the delete method in its full glory.
