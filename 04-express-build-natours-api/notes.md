@@ -97,3 +97,19 @@ Lets re-organize some of our routes to make our code much better.
 Basically we are going to declare all our functions and then use them in the specific route.
 
 Then to make our code easier to read and to maintain we are going to use the `app.route()` and chain all the methods that can be used in that specific route.
+
+---
+
+## Middleware and the Request-Response Cycle
+
+In the last lessons we started getting the fundamentals of `express` development. So now is the perfect time of diving a little deeper into how express works and in order to do that we need to learn about middleware and the request-response cycle.
+
+When someone hits our server express will recieve an incoming request for which it will then create a request and response Objects. That data will then be used and processed in order to generate and send back a meaningful response.
+
+To process that dat ain express we use a `Middleware` which can manipulate the request or response object or really execute any other code that we would like.
+
+It's called middleware because is a function that is executed in the middle (between receiving the request and sending the response).
+
+The middleware stack (all the middleware in our code) are executed by the same order that they are defined, so the order MATTERS a lot in Express.
+
+So the Request-Response Cycle is only this, since when we receive the incoming request, run our various middleware and send a response. It is a linear and straight forward process.
