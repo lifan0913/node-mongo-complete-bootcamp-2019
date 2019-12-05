@@ -139,3 +139,11 @@ Calling the Middleware will return a function similar to our own Middlewares, we
 ## Implementing the "USERS" Routes
 
 Lets implement some Routes for the USERS resources. So that we can have users accounts, user roles, etc...
+
+---
+
+## Creating and Mounting Multiple Routers
+
+Now is where things start to get a little more advanced and that is because we will now create multiple routers and use a process called mouting. Our ultimate goal is to separate all of our code into multiple files with the goal of having one file that only contains the routes for the tours, then another file with the routes for the users. We will also have a file that contains the handlers for the tours and a file that contains the handlers for the users.
+
+In order to be able to do that we need to create one separate router for each of our resources and we will connect it to our application as a Middleware with `app.use()`.
