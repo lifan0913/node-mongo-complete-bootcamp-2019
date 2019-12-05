@@ -123,3 +123,13 @@ Lets now create our own Middleware functions. In order to use middleware we use 
 Remember that the middleware run on the order of the code, so if by any chance we had our middleware after the the app.route it would never run because the cycle would be already finished. The middleware needs to run before the response is send back to the user.
 
 On our second Middleware we are going to create a timestamp of when the request happens and add this field to our request. Then we will console.log it on the request for all the tours and send it back on the response aswell.
+
+---
+
+## Using 3rd-Party Middleware
+
+Lets use a middleware called `morgan` from NPM, this will allow us to see request data right in the console. We will install it as a regular dependency `npm i morgan`.
+
+Into the morgan function we can pass an argument which will specify how the logging will look like and that's it. We required the Middleware and we used it.
+
+Calling the Middleware will return a function similar to our own Middlewares, we can see this by looking at the morgan source code.

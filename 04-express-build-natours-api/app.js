@@ -1,8 +1,10 @@
 const fs = require('fs');
 const express = require('express');
+const morgan = require('morgan');
 const app = express();
 
-// Middleware
+// Middlewares
+app.use(morgan('dev'));
 app.use(express.json());
 
 // Our own Middlewares
@@ -16,6 +18,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// Route Handlers
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
 );
@@ -114,12 +117,7 @@ const deleteTour = (req, res) => {
   });
 };
 
-/* app.get('/api/v1/tours', getAllTours);
-app.get('/api/v1/tours/:id', getTour);
-app.post('/api/v1/tours', createTour);
-app.patch('/api/v1/tours/:id', updateTour);
-app.delete('/api/v1/tours/:id', deleteTour); */
-
+// Routes
 app
   .route('/api/v1/tours')
   .get(getAllTours)
@@ -131,6 +129,7 @@ app
   .patch(updateTour)
   .delete(deleteTour);
 
+// Start Server
 const port = 3000;
 app.listen(port, () => {
   console.log(`App running on port ${port}...`);
