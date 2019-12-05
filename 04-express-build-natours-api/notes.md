@@ -113,3 +113,13 @@ It's called middleware because is a function that is executed in the middle (bet
 The middleware stack (all the middleware in our code) are executed by the same order that they are defined, so the order MATTERS a lot in Express.
 
 So the Request-Response Cycle is only this, since when we receive the incoming request, run our various middleware and send a response. It is a linear and straight forward process.
+
+---
+
+## Creating our own Middleware
+
+Lets now create our own Middleware functions. In order to use middleware we use `app.use()` and to define our own Middleware we just need to create it (our custom function). We need to pass a third element and by convention we use `next`. If we dont call the `next` argument the request-response cycle will be stuck.
+
+Remember that the middleware run on the order of the code, so if by any chance we had our middleware after the the app.route it would never run because the cycle would be already finished. The middleware needs to run before the response is send back to the user.
+
+On our second Middleware we are going to create a timestamp of when the request happens and add this field to our request. Then we will console.log it on the request for all the tours and send it back on the response aswell.
