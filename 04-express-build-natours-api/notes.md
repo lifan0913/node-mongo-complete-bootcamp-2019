@@ -133,3 +133,9 @@ Lets use a middleware called `morgan` from NPM, this will allow us to see reques
 Into the morgan function we can pass an argument which will specify how the logging will look like and that's it. We required the Middleware and we used it.
 
 Calling the Middleware will return a function similar to our own Middlewares, we can see this by looking at the morgan source code.
+
+---
+
+## Implementing the "USERS" Routes
+
+Lets implement some Routes for the USERS resources. So that we can have users accounts, user roles, etc...
