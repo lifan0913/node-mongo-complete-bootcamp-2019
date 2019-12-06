@@ -147,3 +147,15 @@ Lets implement some Routes for the USERS resources. So that we can have users ac
 Now is where things start to get a little more advanced and that is because we will now create multiple routers and use a process called mouting. Our ultimate goal is to separate all of our code into multiple files with the goal of having one file that only contains the routes for the tours, then another file with the routes for the users. We will also have a file that contains the handlers for the tours and a file that contains the handlers for the users.
 
 In order to be able to do that we need to create one separate router for each of our resources and we will connect it to our application as a Middleware with `app.use()`.
+
+---
+
+## A Better File Structure
+
+Lets now completly refactor our application and create a lot of new files and a whole new file structure. We want to separate our routes into new files, so this will be the first step.
+
+We are going to create a new folder called **routes** and in there we will have a file for the Tours and a file for the Users and move their respective code into there leaving on the Middlewares (`app.use()`) and the start server on the app.js.
+
+Once this is done, lets take a step further and create a new folder called "controllers" and create a controller for the tours and another for the users. This thing about controllers will become clear when we start to investigate the Model View Controller (MVC) architecture. Grab the handlers code and move it to the respective files and then import the functions into the respectivo routes.
+
+Finally lets create a server file, mainly because it's a good practice to have everything that is related to express in one file and everything that is related to the server in another **main** file. So `server.js` will now be our starting file.
