@@ -4,8 +4,20 @@ const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
 );
 
+exports.checkID = (req, res, next, val) => {
+  console.log(`Tour id is ${val}`);
+  if (val > tours.length) {
+    return res.status(404).json({
+      status: 'fail',
+      data: {
+        tour: 'Invalid ID'
+      }
+    });
+  }
+  next();
+};
+
 exports.getAllTours = (req, res) => {
-  console.log(req.requestTime);
   res.status(200).json({
     status: 'sucess',
     requestedAt: req.requestTime,
@@ -19,13 +31,6 @@ exports.getTour = (req, res) => {
   const id = req.params.id * 1;
   const tour = tours.find(el => el.id === id);
 
-  // if (id > tours.length) {
-  if (!tour) {
-    res.status(404).json({
-      status: 'fail',
-      message: 'Invalid ID'
-    });
-  }
   res.status(200).json({
     status: 'sucess',
     data: { tour }
@@ -58,14 +63,6 @@ exports.updateTour = (req, res) => {
    * We aren't implementing the method because this is a dummy API and we will not use files to save the data in a real context
    * This is only to demonstrate how to send back data when using the PATHC Method.
    */
-  if (req.params.id > tours.length) {
-    return res.status(404).json({
-      status: 'fail',
-      data: {
-        tour: 'Invalid ID'
-      }
-    });
-  }
 
   res.status(200).json({
     status: 'sucess',
@@ -80,14 +77,6 @@ exports.deleteTour = (req, res) => {
    * We aren't implementing the method because this is a dummy API and we will not use files to save the data in a real context
    * This is only to demonstrate how to send back data when using the PATHC Method.
    */
-  if (req.params.id > tours.length) {
-    return res.status(404).json({
-      status: 'fail',
-      data: {
-        tour: 'Invalid ID'
-      }
-    });
-  }
 
   // 204 means no content
   res.status(204).json({

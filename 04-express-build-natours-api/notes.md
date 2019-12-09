@@ -159,3 +159,9 @@ We are going to create a new folder called **routes** and in there we will have 
 Once this is done, lets take a step further and create a new folder called "controllers" and create a controller for the tours and another for the users. This thing about controllers will become clear when we start to investigate the Model View Controller (MVC) architecture. Grab the handlers code and move it to the respective files and then import the functions into the respectivo routes.
 
 Finally lets create a server file, mainly because it's a good practice to have everything that is related to express in one file and everything that is related to the server in another **main** file. So `server.js` will now be our starting file.
+
+---
+
+## Param Middleware
+
+Param middleware is middleware that only runs for certain parameters, so basically when we have a certain parameter in our URL. In our example the only param that we have is the ID. So lets write a middleware that runs when the ID is present. In a param middleware we also have acess to a 4th param, we usually call it the `val` which stands for value.
