@@ -165,3 +165,11 @@ Finally lets create a server file, mainly because it's a good practice to have e
 ## Param Middleware
 
 Param middleware is middleware that only runs for certain parameters, so basically when we have a certain parameter in our URL. In our example the only param that we have is the ID. So lets write a middleware that runs when the ID is present. In a param middleware we also have acess to a 4th param, we usually call it the `val` which stands for value.
+
+---
+
+## Chaining Multiple Middleware Functions
+
+Whenever we want to define a middleware we only ever pass one middleware function. Until now we only have been using a Middleware , now we are going to chain them.
+
+In this examples we are going to chain a middleware to the post method to verify is the req.body is correct before running the createTour middleware.
