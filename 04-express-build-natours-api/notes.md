@@ -173,3 +173,13 @@ Param middleware is middleware that only runs for certain parameters, so basical
 Whenever we want to define a middleware we only ever pass one middleware function. Until now we only have been using a Middleware , now we are going to chain them.
 
 In this examples we are going to chain a middleware to the post method to verify is the req.body is correct before running the createTour middleware.
+
+---
+
+## Serving Static Files
+
+What are we refering to static files? Our static files are sitting in our file system that we currently cannot access using our routes (eg Overview file in the public folder). We can't type (localhost:3000/public/overview.html) in the browser and access the file because we haven't defined a route for it. If we want to access something from our file system we need to use a built in express middleware.
+
+The middleware in question is the `express.static()` middleware and we pass it the directory on the static files that we want to serve. Then to access them we don't need the public folder in the URL, so we just need to type (localhost:3000/overview.html). We don't need the public folder because when we open up a URL that can't be found in any of the routes it will then look in that public folder that we defined and it kinda of sets that folder to the root. So we can pretend that the root "/" is our public folder.
+
+This wraps up the basic introduction to express.
