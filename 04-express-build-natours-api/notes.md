@@ -183,3 +183,23 @@ What are we refering to static files? Our static files are sitting in our file s
 The middleware in question is the `express.static()` middleware and we pass it the directory on the static files that we want to serve. Then to access them we don't need the public folder in the URL, so we just need to type (localhost:3000/overview.html). We don't need the public folder because when we open up a URL that can't be found in any of the routes it will then look in that public folder that we defined and it kinda of sets that folder to the root. So we can pretend that the root "/" is our public folder.
 
 This wraps up the basic introduction to express.
+
+---
+
+## Environment Variables
+
+Environment Variables are not exactly about Express, it really about Node.js development in general but we need them in order to move on in the project.
+
+Node.js or Express Apps can run in different environments and the most important ones are the developmennt environment and the production environment. It's because depending on the environmnent we might use different databases or we might turn logging on or off or debugging on or off.
+
+By default express sets the environment to develop and that makes sense because that what we are doing when we start a new project.
+
+Environment variables are global variables that are used to define the environment in which a node app is running. So see the environment that we are running in express we can log it using `console.log(app.get('env'));`, this variable is defined by express. Node.js also declares a few environment variables and we can found them this way `console.log(process.env);` there are a lot of them and node use them internally, this variable come from the process module.
+
+We can create Node Environment Variables when lauching our app for example (NODE_ENV=development X=23 nodemon server.js), but this isn't the most pratical situation, so lets create a config file and set the our environment variables, this is the convention.
+
+In order to use our variables from we can use an npm package called `dotenv` which is kinda the standard. We need to require it in our server.js and then use it `dotenv.config({ path: './config.env' });`. This will go to the path specified and read the variables and save them into node.js environment variables.
+
+Then we can use it in the app to only use morgan in development and to load the PORT from the config file.
+
+Finally lets create a new script to run the production, we just need to add a new script to the package.json and change the NODE_ENV variable before starting the server.
