@@ -1,0 +1,3 @@
+{
+  "eslint.workingDirectories": ["./04-express-build-natours-api"]
+}
