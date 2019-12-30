@@ -6,13 +6,12 @@ const {
   getTour,
   updateTour,
   deleteTour,
-  checkID,
   checkBody
 } = require('./../controllers/tourController');
 
 const router = express.Router();
 
-router.param('id', checkID);
+// router.param('id', checkID);
 
 // Create a checkBody Middleware
 // Check if the body contains the name and price property
