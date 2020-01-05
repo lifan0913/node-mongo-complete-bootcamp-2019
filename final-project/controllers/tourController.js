@@ -51,18 +51,26 @@ exports.createTour = async (req, res) => {
   }
 };
 
-exports.updateTour = (req, res) => {
-  /**
-   * We aren't implementing the method because this is a dummy API and we will not use files to save the data in a real context
-   * This is only to demonstrate how to send back data when using the PATHC Method.
-   */
+exports.updateTour = async (req, res) => {
+  try {
+    // Update a Tour based on a ID
+    const tour = await Tour.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true
+    });
 
-  res.status(200).json({
-    status: 'sucess',
-    data: {
-      tour: '<Updated tour here...>'
-    }
-  });
+    res.status(200).json({
+      status: 'sucess',
+      data: {
+        tour: tour
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    });
+  }
 };
 
 exports.deleteTour = (req, res) => {
