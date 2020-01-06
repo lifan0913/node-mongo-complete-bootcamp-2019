@@ -73,17 +73,20 @@ exports.updateTour = async (req, res) => {
   }
 };
 
-exports.deleteTour = (req, res) => {
-  /**
-   * We aren't implementing the method because this is a dummy API and we will not use files to save the data in a real context
-   * This is only to demonstrate how to send back data when using the PATHC Method.
-   */
-
-  // 204 means no content
-  res.status(204).json({
-    status: 'sucess',
-    data: {
-      tour: null
-    }
-  });
+exports.deleteTour = async (req, res) => {
+  try {
+    await Tour.findByIdAndDelete(req.params.id);
+    // 204 means no content
+    res.status(204).json({
+      status: 'sucess',
+      data: {
+        tour: null
+      }
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    });
+  }
 };
