@@ -1,5 +1,14 @@
 const Tour = require('../models/tourModel');
 
+// 5) Aliasing
+// New Middleware to pre-fill parts of the request before hiting the getAllTours
+exports.aliasTopTours = async (req, res, next) => {
+  req.query.limit = '5';
+  req.query.sort = '-ratingsAverage, price';
+  req.query.fields = 'name, price, ratingsAverage, summary, difficulty';
+  next();
+};
+
 exports.getAllTours = async (req, res) => {
   try {
     console.log(req.query);
