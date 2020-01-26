@@ -203,3 +203,5 @@ In order to use our variables from we can use an npm package called `dotenv` whi
 Then we can use it in the app to only use morgan in development and to load the PORT from the config file.
 
 Finally lets create a new script to run the production, we just need to add a new script to the package.json and change the NODE_ENV variable before starting the server.
+
+Test
