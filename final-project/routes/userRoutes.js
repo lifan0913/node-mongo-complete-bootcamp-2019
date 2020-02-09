@@ -4,6 +4,7 @@ const {
   getAllUsers,
   createUser,
   updateMe,
+  deleteMe,
   getUser,
   updateUser,
   deleteUser
@@ -28,6 +29,7 @@ router.patch('/updateMyPassword', protect, updatePassword);
 router.patch('/resetPassword/:token', resetPassword);
 
 router.patch('/updateMe', protect, updateMe);
+router.delete('/deleteMe', protect, deleteMe);
 
 router
   .route('/')
