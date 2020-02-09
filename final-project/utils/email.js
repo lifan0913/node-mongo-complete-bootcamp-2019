@@ -20,9 +20,6 @@ const sendEmail = async options => {
     // html:
   };
 
-  console.log('transporter', transporter);
-  console.log('emailOptions', emailOptions);
-
   // 3) Send the email
   await transporter.sendMail(emailOptions);
 };
