@@ -1,8 +1,12 @@
 const Tour = require('../models/tourModel');
-const APIFeatures = require('../utils/apiFeatures');
 const catchAsync = require('../utils/catchAsync');
-const AppError = require('../utils/appError');
-const { deleteOne, updateOne, createOne } = require('./handlerFactory');
+const {
+  deleteOne,
+  updateOne,
+  createOne,
+  getOne,
+  getAll
+} = require('./handlerFactory');
 
 // 5) Aliasing
 // New Middleware to pre-fill parts of the request before hiting the getAllTours
@@ -13,35 +17,9 @@ exports.aliasTopTours = async (req, res, next) => {
   next();
 };
 
-exports.getAllTours = catchAsync(async (req, res, next) => {
-  // EXECUTE QUERY
-  const features = new APIFeatures(Tour.find(), req.query)
-    .filtering()
-    .sorting()
-    .limitFields()
-    .paginate();
-  const tours = await features.query;
+exports.getAllTours = getAll(Tour);
 
-  // SEND RESPONSE
-  res.status(200).json({
-    status: 'sucess',
-    results: tours.length,
-    data: { tours }
-  });
-});
-
-exports.getTour = catchAsync(async (req, res, next) => {
-  const tour = await Tour.findById(req.params.id).populate('reviews');
-
-  if (!tour) {
-    return next(new AppError('No tour found with that ID', 404));
-  }
-
-  res.status(200).json({
-    status: 'sucess',
-    data: { tour }
-  });
-});
+exports.getTour = getOne(Tour, { path: 'reviews' });
 
 exports.createTour = createOne(Tour);
 
