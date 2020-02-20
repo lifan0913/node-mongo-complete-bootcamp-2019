@@ -13,6 +13,7 @@ const {
 
 const {
   protect,
+  restrictTo,
   signup,
   login,
   forgotPassword,
@@ -24,15 +25,17 @@ const router = express.Router();
 
 router.post('/signup', signup);
 router.post('/login', login);
-
 router.post('/forgotPassword', forgotPassword);
-router.patch('/updateMyPassword', protect, updatePassword);
 router.patch('/resetPassword/:token', resetPassword);
 
-router.get('/me', protect, getMe, getUser);
-router.patch('/updateMe', protect, updateMe);
-router.delete('/deleteMe', protect, deleteMe);
+// Because middleware runs in sequence we can add the protect method to the router and all the routers after will be protected
+router.use(protect);
+router.get('/me', getMe, getUser);
+router.patch('/updateMyPassword', updatePassword);
+router.patch('/updateMe', updateMe);
+router.delete('/deleteMe', deleteMe);
 
+router.use(restrictTo('admin'));
 router
   .route('/')
   .get(getAllUsers)
