@@ -74,6 +74,8 @@ reviewSchema.post('save', function() {
   this.constructor.calcAverageRatings(this.tour);
 });
 
+reviewSchema.index({ tour: 1, user: 1 }, { unique: true });
+
 reviewSchema.pre(/^findOneAnd/, async function(next) {
   this.r = await this.findOne();
   next();
